@@ -1,0 +1,23 @@
+{
+  "name": "lesson68-fitnesstracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gold240sx/Lesson-68---Fitness-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gold240sx/Lesson-68---Fitness-Tracker/issues"
+  },
+  "homepage": "https://github.com/Gold240sx/Lesson-68---Fitness-Tracker#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "firebase": "^9.6.11"
+  }
+}

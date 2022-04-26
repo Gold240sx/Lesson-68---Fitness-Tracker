@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="./styles.css">
 
     <!-- Javascript -->
+
     <script src="https://d3js.org/d3.v7.min.js" defer></script>
-    <script src="index.js" defer></script>
-    <script src="graph.js" defer></script>
+
+    <!-- <script type="module" src="./JS/firebaseV8.js" defer></script> -->
+    <script type="module" src="./JS/index.js" defer></script>
+    <script src="./JS/graph.js" defer></script>
 
     <title>DojoFit</title>
 </head>
@@ -43,11 +46,28 @@
             <form class="col m6 push-m3">
                 <p class="flow-text grey-text center">How Much <span>cycling</span> have you done today?</p>
                 <input type="text" class="grey-text" id="cycling" placeholder="Distance in Ft">
-                <p class="center pink-text error text-lighten-1">error</p>
+                <p class="center pink-text error text-lighten-1"></p>
             </form>
         </ddiv>
     </div>
 
 
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyC-l9VdSKzYww9hZ7soSUffIJxwT2aLA3I",
+            authDomain: "d3-database-21abf.firebaseapp.com",
+            projectId: "d3-database-21abf",
+            storageBucket: "d3-database-21abf.appspot.com",
+            messagingSenderId: "564128085624",
+            appId: "1:564128085624:web:0a4ee7701aa64358351f8d"
+        };
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+        const settings = {timestampsInSnapshots: true};
+        db.settings(settings)
+    </script>
 </body>
 </html>
