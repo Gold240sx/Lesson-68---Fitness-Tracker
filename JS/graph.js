@@ -35,6 +35,23 @@ const line = d3.line()
 //line path element
 const path = graph.append('path')
 
+//create dotted line group and append to graph
+const dotLineGroup = graph.append('g')
+    .attr('class', 'lines')
+    .style('opacity', 0)
+
+//create x dotted line and append to the dotted line group
+const xDotLine = dotLineGroup.append('line')
+    .attr('stroke', '#aaa')
+    .attr('stroke-width', 1)
+    .style('stroke-dasharray', 4)
+    
+//create y dotted line and append to the dotted line group
+const yDotLine = dotLineGroup.append('line')
+    .attr('stroke', '#aaa')
+    .attr('stroke-width', 1)
+    .style('stroke-dasharray', 4)
+
 const update = (data) => {
     //console.log(data)
 
@@ -81,14 +98,31 @@ const update = (data) => {
         .on('mouseover', function handleMouseOver(e,d) {
             d3.select(this)
                 .transition().duration(100)
-                    .attr('r', '8')
+                    .attr('r', '10')
                     .attr('fill', '#00bfa5')
+
+            // set x dotted line coords (x1(0), x2, y1(0), y2)
+            xDotLine
+                .attr('x1', x(new Date(d.date)))
+                .attr('x2', x(new Date(d.date)))
+                .attr('y1', graphHeight)
+                .attr('y2', y(d.distance))
+            // set y dotted line coords (x1(0), x2, y1(0), y2)
+            yDotLine
+                .attr('x1', 0)
+                .attr('x2', x(new Date(d.date)))
+                .attr('y1', y(d.distance))
+                .attr('y2', y(d.distance))
+            // show the dotted line group (.style, opacity)
+            dotLineGroup.style('opacity', 1);
         })
         .on('mouseleave', function handleMouseOut(e, d) {
             d3.select(this)
                 .transition().duration(100)
                     .attr('r', '4')
                     .attr('fill', 'white')
+            // hide the dotted line group (.style, opacity)
+            dotLineGroup.style('opacity', 0);
         })
 
     //create axis

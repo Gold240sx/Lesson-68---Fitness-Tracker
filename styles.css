@@ -25,7 +25,7 @@ form span {
 .x-axis path, 
 .y-axis path,
 .x-axis line, 
-.y-axis line {
+.y-axis line{
     stroke: #ccc;
 }
 
